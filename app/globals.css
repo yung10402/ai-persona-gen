@@ -1,0 +1,819 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ====== 여기부터 .screen 스타일들 ====== */
+.screen {
+  background-color: #f6f7f8;
+  width: 100%;
+  min-width: 1440px;
+  min-height: 2093px;
+  position: relative;
+}
+
+/* ... (중략) ... 너가 보낸 .screen 이하 전부 붙이기 ... */
+
+:root {
+  --variable-collection-color: rgba(233, 243, 253, 1);
+  --variable-collection-color-2: rgba(79, 158, 240, 1);
+}
+/* ===== 공통 리셋/기본은 그대로 두고, 아래부터 교체 ===== */
+
+:root {
+  --blue-main: #2b8cee;
+  --blue-light: #e9f3fd;
+  --gray-bg: #f6f7f8;
+  --gray-border: #e2e2e2;
+  --gray-text-sub: #8c8c8c;
+  --text-main: #000000;
+  --header-height: 75px;
+}
+
+body {
+  font-family: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background-color: var(--gray-bg);
+}
+
+/* 전체 래퍼 */
+.screen {
+  min-height: 100vh;
+  background-color: var(--gray-bg);
+}
+
+/* 헤더 */
+
+.frame {
+  height: var(--header-height);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.header {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rectangle {
+  display: none; /* 원래 전체 흰 배경이라 필요 없음 */
+}
+
+/* 아이콘 + 타이틀 */
+
+.group {
+  width: 33px;
+  height: 33px;
+  background-color: var(--blue-main);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ellipse {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 999px;
+}
+
+.ellipse-2 {
+  width: 18px;
+  height: 10px;
+  border-radius: 999px;
+  border: 2px solid #fff;
+}
+
+.text-wrapper-2 {
+  font-weight: 500;
+  font-size: 24px;
+  color: #2c2c2c;
+}
+
+/* 우측 아이콘 */
+
+.home,
+.dashboard {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: var(--gray-bg);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dashboard {
+  margin-left: 8px;
+}
+
+.home:hover,
+.dashboard:hover {
+  background-color: #e5e5e5;
+  transform: scale(1.03);
+}
+
+.material-symbols {
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+
+.vector,
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 메인 레이아웃 */
+
+.screen main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+}
+
+/* 섹션 헤딩 */
+
+.div,
+.AI {
+  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.text-wrapper {
+  color: var(--blue-main);
+}
+.span {
+  color: #000;
+}
+
+/* “프로덕트 정보”, “AI 페르소나 정보” 소제목 */
+
+.text-wrapper-3 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+/* 폼 그룹 공통 */
+
+.form-group {
+  margin-top: 32px;
+}
+
+.form-group label,
+.text-wrapper-6,
+.text-wrapper-7,
+.text-wrapper-8,
+.text-wrapper-9 {
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* 인풋/텍스트에어리어 공통 */
+
+.rectangle-2,
+.rectangle-3,
+.rectangle-4,
+.rectangle-5 {
+  width: 100%;
+  max-width: 960px;
+  border-radius: 4px;
+  border: 1.5px solid var(--gray-border);
+  background-color: #fff;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.rectangle-5 {
+  max-width: 1342px;
+  min-height: 160px;
+  resize: vertical;
+}
+
+.rectangle-2::placeholder,
+.rectangle-3::placeholder,
+.rectangle-4::placeholder,
+.rectangle-5::placeholder {
+  color: var(--gray-text-sub);
+}
+
+.rectangle-2:focus,
+.rectangle-3:focus,
+.rectangle-4:focus,
+.rectangle-5:focus {
+  border-color: var(--blue-main);
+  box-shadow: 0 0 0 1px var(--blue-main);
+}
+
+/* 도움 텍스트 */
+
+.p,
+.text-wrapper-13,
+.text-wrapper-14,
+.text-wrapper-15 {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--gray-text-sub);
+  max-width: 960px;
+}
+
+/* 서비스 타입 버튼들 */
+
+.service-type-options {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.group-wrapper {
+  display: inline-flex;
+}
+
+.group-3,
+.group-4 {
+  min-width: 120px;
+  height: 44px;
+  border-radius: 4px;
+  border: 1.5px solid var(--gray-border);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.group-3:hover,
+.group-4:hover {
+  border-color: var(--blue-main);
+  background-color: var(--blue-light);
+}
+
+.text-wrapper-11,
+.text-wrapper-12 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 나이 선택 */
+
+.age-options {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* 공통 버튼 기본 스타일 */
+.frame-3,
+.element-wrapper,
+.div-wrapper,
+.group-2 {
+  min-width: 120px;
+  height: 44px;
+  border-radius: 4px;
+  border: 1.5px solid var(--gray-border);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+/* hover */
+.gender:hover,
+.gender-2:hover,
+.frame-3:hover,
+.element-wrapper:hover,
+.div-wrapper:hover,
+.group-2:hover {
+  border-color: var(--blue-main);
+  background-color: var(--blue-light);
+}
+
+/* ★ 선택된 상태(aria-pressed="true")일 때만 파란색 */
+/* ★ 선택된 상태(aria-pressed="true")일 때만 파란색 */
+.frame-3[aria-pressed="true"],       /* 나이 10-19 */
+.element-wrapper[aria-pressed="true"],/* 나이 20-29 */
+.div-wrapper[aria-pressed="true"],    /* 나이 30-39 */
+.group-2[aria-pressed="true"],        /* 나이 40-49 */
+.group-3[aria-pressed="true"],        /* 서비스 타입: 앱/웹 */
+.group-4[aria-pressed="true"],        /* 서비스 타입: 제품 */
+.gender[aria-pressed="true"],         /* 성별: 남자 */
+.gender-2[aria-pressed="true"] {      /* 성별: 여자 */
+  background-color: var(--blue-light);
+  border-color: var(--blue-main);
+}
+
+.frame-3[aria-pressed="true"] .text-wrapper-18,
+.element-wrapper[aria-pressed="true"] .element,
+.div-wrapper[aria-pressed="true"] .element-2,
+.group-2[aria-pressed="true"] .element-3,
+.group-3[aria-pressed="true"] .text-wrapper-11,
+.group-4[aria-pressed="true"] .text-wrapper-12,
+.gender[aria-pressed="true"] .text-wrapper-17,
+.gender-2[aria-pressed="true"] .text-wrapper-17 {
+  color: var(--blue-main);
+}
+
+/* 성별 선택 */
+
+.gender-options {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.gender,
+.gender-2 {
+  min-width: 120px;
+  height: 44px;
+  border-radius: 4px;
+  border: 1.5px solid var(--gray-border);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.gender:hover,
+.gender-2:hover,
+.frame-3:hover,
+.element-wrapper:hover,
+.div-wrapper:hover,
+.group-2:hover {
+  border-color: var(--blue-main);
+  background-color: var(--blue-light);
+}
+
+/* 성별 텍스트 */
+
+.text-wrapper-17 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 제출 버튼 */
+
+.frame-2 {
+  margin: 60px auto 0;
+  width: 100%;
+  max-width: 1110px;
+  height: 72px;
+  border-radius: 24px;
+  background-color: var(--blue-main);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+
+.frame-2:hover {
+  background-color: #1e7ad6;
+  box-shadow: 0 4px 12px rgba(43, 140, 238, 0.3);
+}
+
+.text-wrapper-16 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.AI {
+  margin-top: 60px; /* 원하는 값 */
+}
+
+/* ================== Output(결과) 페이지 ================== */
+
+.output-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+}
+
+/* 상단 타이틀 */
+
+.output-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 0 24px;
+}
+
+.output-title-blue {
+  color: var(--blue-main);
+}
+
+/* 상단 페르소나 카드 */
+
+.persona-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  margin-bottom: 32px;
+}
+
+.persona-main {
+  display: flex;
+  gap: 20px;
+}
+
+.persona-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #e1e4e8;
+}
+
+.persona-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.persona-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.persona-meta {
+  margin: 0;
+  font-size: 13px;
+  color: var(--gray-text-sub);
+}
+
+.persona-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* 카드 오른쪽 액션 버튼 영역 */
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* 태그 버튼 공통 */
+
+.tag-adopt,
+.tag-source {
+  min-width: 72px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--gray-border);
+  background-color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.tag-adopt:hover {
+  background-color: #f3f5f7;
+}
+
+/* 채택: 선택됐을 때 하늘색 */
+
+.tag-adopt[aria-pressed="true"] {
+  background-color: var(--blue-light);
+  border-color: var(--blue-main);
+  color: var(--blue-main);
+}
+
+/* 출처 확인: 항상 초록색 */
+
+.tag-source {
+  border-color: #5fd38b;
+  background-color: #e6f9ef;
+  color: #1b8e4b;
+}
+
+.tag-source:hover {
+  background-color: #d7f5e6;
+}
+
+/* 섹션 카드 리스트 (세로) */
+
+.output-section-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+/* 개별 카드 */
+
+.output-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* 카드 헤더: 제목 + 액션 */
+
+.output-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.output-card-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.output-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.output-card-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-text-sub);
+}
+
+/* 리스트/본문 */
+
+.output-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.output-list li + li {
+  margin-top: 2px;
+}
+
+.output-paragraph {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 하단 CTA 버튼 */
+
+.output-cta {
+  display: block;
+  margin: 48px auto 0;
+  width: 100%;
+  max-width: 1110px;
+  height: 72px;
+  border-radius: 24px;
+  background-color: var(--blue-main);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.output-cta:hover {
+  background-color: #1e7ad6;
+  box-shadow: 0 4px 12px rgba(43, 140, 238, 0.3);
+}
+
+/* ========================= */
+/*        CHAT  화면         */
+/* ========================= */
+
+.chat-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+}
+
+.chat-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.chat-summary-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.chat-summary-header,
+.chat-summary-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.chat-summary-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.chat-summary-col {
+  padding: 14px 24px;
+  font-size: 15px;
+}
+
+.chat-summary-header .chat-summary-col {
+  font-weight: 600;
+  color: #555;
+}
+
+.chat-summary-row .chat-summary-col {
+  font-weight: 500;
+}
+
+/* 메세지 리스트 */
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0 40px;
+  max-height: calc(100vh - 360px);
+  overflow-y: auto;
+}
+
+/* 한 줄(메세지) 레이아웃 */
+
+.chat-message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.chat-message-ai {
+  justify-content: flex-start;
+}
+
+.chat-message-user {
+  justify-content: flex-end;
+}
+
+/* 아바타 */
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.chat-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 말풍선 + 시간 */
+
+.chat-bubble-wrapper {
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chat-bubble {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #111;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* 유저 말풍선은 오른쪽, 파란 느낌 */
+
+.chat-message-user .chat-bubble {
+  background-color: #e9f3fd;
+  align-self: flex-end;
+}
+
+/* 시간 텍스트 */
+
+.chat-time {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 입력 바 */
+
+.chat-input-bar {
+  position: sticky;
+  bottom: 0;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e2e2;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  background-color: #f6f7f8;
+}
+
+.chat-input {
+  flex: 1;
+  border-radius: 8px;
+  border: 1.5px solid var(--gray-border);
+  padding: 12px 14px;
+  font-size: 14px;
+  resize: none;
+  font-family: inherit;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.chat-input::placeholder {
+  color: var(--gray-text-sub);
+}
+
+.chat-input:focus {
+  border-color: var(--blue-main);
+  box-shadow: 0 0 0 1px var(--blue-main);
+}
+
+.chat-send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--blue-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.chat-send-btn:hover {
+  background-color: #1e7ad6;
+  box-shadow: 0 3px 8px rgba(43, 140, 238, 0.35);
+}
+
+.chat-send-icon {
+  color: #ffffff;
+  font-size: 18px;
+  transform: translateX(1px);
+}
