@@ -12,7 +12,7 @@ export default function HomePage() {
   );
   const [serviceCategory, setServiceCategory] = useState("");
   const [serviceSummary, setServiceSummary] = useState("");
-  const [ageRange, setAgeRange] = useState<string | null>(null); // ← 기본값 null
+  const [ageRange, setAgeRange] = useState<string | null>(null); // 기본값 null
   const [gender, setGender] = useState<"male" | "female" | null>(null);
   const [occupation, setOccupation] = useState("");
   const [userGoal, setUserGoal] = useState("");
@@ -20,20 +20,16 @@ export default function HomePage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 일단은 콘솔 확인 + 나중에 /output에 넘길 값 준비
     const params = new URLSearchParams({
       serviceType: serviceType ?? "",
       serviceCategory,
       serviceSummary,
-      ageRange: ageRange ?? "",   // ← null이면 빈 문자열
+      ageRange: ageRange ?? "",
       gender: gender ?? "",
       occupation,
       userGoal,
     });
 
-    console.log("폼 값:", Object.fromEntries(params.entries()));
-
-    // 나중에 output 페이지 만들면 여기로 이동시키면 됨
     router.push(`/output?${params.toString()}`);
   };
 
@@ -47,12 +43,24 @@ export default function HomePage() {
             <div className="ellipse"></div>
             <div className="ellipse-2"></div>
           </div>
-          <nav className="home" aria-label="홈으로 이동">
+
+          {/* 홈 아이콘: / 로 이동 */}
+          <nav
+            className="home"
+            aria-label="홈으로 이동"
+            onClick={() => router.push("/")}
+          >
             <div className="material-symbols">
               <img className="vector" src="/img/Home.svg" alt="홈 아이콘" />
             </div>
           </nav>
-          <nav className="dashboard" aria-label="대시보드로 이동">
+
+          {/* 대시보드 아이콘: /dashboard 로 이동 */}
+          <nav
+            className="dashboard"
+            aria-label="대시보드로 이동"
+            onClick={() => router.push("/dashboard")}
+          >
             <div className="material-symbols">
               <img
                 className="img"
@@ -139,7 +147,10 @@ export default function HomePage() {
                 onChange={(e) => setServiceSummary(e.target.value)}
               />
 
-              <span id="service-summary-hint" className="text-wrapper-15"></span>
+              <span
+                id="service-summary-hint"
+                className="text-wrapper-15"
+              ></span>
             </div>
           </section>
 
@@ -237,16 +248,16 @@ export default function HomePage() {
               <span id="occupation-hint" className="text-wrapper-13"></span>
             </div>
 
-            {/* 사용자 목표 입력 */}
+            {/* 사용자 특성 입력 */}
             <div className="form-group">
               <label htmlFor="user-goal" className="text-wrapper-9">
-                사용자 목표 입력
+                사용자 특성 입력
               </label>
 
               <textarea
                 id="user-goal"
                 className="rectangle-5"
-                placeholder="페르소나가 달성하고자 하는 주요 목적을 입력하세요"
+                placeholder="AI 페르소나의 주요 특성을 입력하세요 (취미, 성향 등)"
                 aria-describedby="user-goal-hint"
                 rows={5}
                 value={userGoal}
@@ -259,19 +270,10 @@ export default function HomePage() {
 
           {/* 제출 버튼 */}
           <button type="submit" className="frame-2">
-            <span className="text-wrapper-16">
-              AI 페르소나 생성하기
-            </span>
+            <span className="text-wrapper-16">AI 페르소나 생성하기</span>
           </button>
         </form>
       </main>
     </div>
   );
 }
-
-
-
-
-
-
-
