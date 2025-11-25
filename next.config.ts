@@ -2,12 +2,14 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // GitHub Pages용 설정들 제거
+  // output: 'export',
+  // basePath: '/ai-persona-gen',
+  // assetPrefix: '/ai-persona-gen/',
+
   images: {
-    unoptimized: true,
+    unoptimized: true, // 이건 있어도 되고, 빼도 됨
   },
-  basePath: '/ai-persona-gen',
-  assetPrefix: '/ai-persona-gen/',
 };
 
 export default nextConfig;
